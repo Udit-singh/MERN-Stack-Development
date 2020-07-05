@@ -15,13 +15,15 @@ const commentSchema = new Schema({
         type: String,
         required: true
     },
-    author:  {
-        type: String,
-        required: true
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 }, {
-    timestamps: true
+    timestamps: true,
+    usePushEach: true
 });
+
 
 const dishSchema = new Schema({
     name: {
@@ -56,7 +58,8 @@ const dishSchema = new Schema({
     },
     comments:[commentSchema]
 }, {
-    timestamps: true
+    timestamps: true,
+    usePushEach: true
 });
 
 
