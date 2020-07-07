@@ -13,7 +13,7 @@ leaderRouter.route('/')
 
     .get(cors.cors, (req, res, next) => {
         res.end('Will send all the leaders to you!')
-        Leaderships.find({})
+        Leaderships.find(req.query)
             .then((leaders) => {
                 res.statusCode=200;
                 res.setHeader('Content-Type', 'application/json');
